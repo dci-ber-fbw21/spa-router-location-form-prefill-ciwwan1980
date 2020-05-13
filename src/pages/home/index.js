@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './index.css';
 
-export default class HomePage extends Component {
-    render() {
+const HomePage =(props)=> {
+
+console.log(props)
+
         return (
             <div style={{ backgroundColor: 'blue' }}>
                 <div className="home-page">
@@ -122,5 +124,7 @@ export default class HomePage extends Component {
                 </div>
             </div>
         )
-    }
 }
+
+
+export default HomePage
