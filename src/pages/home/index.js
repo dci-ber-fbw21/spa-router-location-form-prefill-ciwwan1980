@@ -40,27 +40,39 @@ console.log(data)
                             <label className="form-field__label">Language</label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                checked={data.language.includes("english")}
+                                 />
                                 <span className="checkbox-field__label">English</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox" 
+                                 checked={data.language.includes("german")}
+                                />
                                 <span className="checkbox-field__label">German</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                checked={data.language.includes("italian")}
+                                 />
                                 <span className="checkbox-field__label">Italian</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox" 
+                                  checked={data.language.includes("chineese")}
+                                />
+                              
                                 <span className="checkbox-field__label">Chineese</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                  checked={data.language.includes("russian")} 
+                                  />
+                              
                                 <span className="checkbox-field__label">Russian</span>
                             </label>
                         </div>
