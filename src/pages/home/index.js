@@ -10,6 +10,7 @@ console.log(props.location.search, "here----")
 
 const data=queryString.parse(props.location.search); 
 console.log(data)
+console.log(data.bookType.includes("hardcover"), "here---------"); 
 
         return (
             <div style={{ backgroundColor: 'blue' }}>
@@ -82,15 +83,22 @@ console.log(data)
                             <label className="form-field__label">Book type</label>
 
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                checked={data.bookType.includes("e-book")}
+                                 />
                                 <span className="checkbox-field__label">E-Book</span>
                             </label>
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                 checked={data.bookType.includes("paperback")}
+                                 />
                                 <span className="checkbox-field__label">Paperback</span>
                             </label>
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                
+                                 checked={data.bookType.includes("hardcover")}
+                                />
                                 <span className="checkbox-field__label">Hardcover</span>
                             </label>
                         </div>
