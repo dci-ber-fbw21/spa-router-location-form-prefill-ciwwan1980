@@ -1,9 +1,15 @@
 import React from 'react';
+import queryString from "query-string"
 import './index.css';
 
 const HomePage =(props)=> {
-
 console.log(props)
+// http://localhost:3000/?language=english
+console.log(props.location.search, "here----")
+// http://localhost:3000/?customerRating=5&bookType=paperback,hardcover&language=english,german
+
+const data=queryString.parse(props.location.search); 
+console.log(data)
 
         return (
             <div style={{ backgroundColor: 'blue' }}>
@@ -84,6 +90,7 @@ console.log(props)
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                         checked={"1"===data.customerRating}
                                 />
                                 <span className="radio-field__label">1 and up</span>
                             </label>
@@ -92,6 +99,7 @@ console.log(props)
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                         checked={"2"===data.customerRating}
                                 />
                                 <span className="radio-field__label">2 and up</span>
                             </label>
@@ -100,6 +108,7 @@ console.log(props)
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                     checked={"3"===data.customerRating}
                                 />
                                 <span className="radio-field__label">3 and up</span>
                             </label>
@@ -108,6 +117,7 @@ console.log(props)
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                    checked={"4"===data.customerRating}
                                 />
                                 <span className="radio-field__label">4 and up</span>
                             </label>
@@ -116,6 +126,9 @@ console.log(props)
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                    checked={"5"===data.customerRating}
+                                   
+                                  
                                 />
                                 <span className="radio-field__label">5 and up</span>
                             </label>
