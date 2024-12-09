@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import queryString from "query-string"
 import './index.css';
 
-export default class HomePage extends Component {
-    render() {
+const HomePage =(props)=> {
+console.log(props)
+// http://localhost:3000/?language=english
+console.log(props.location.search, "here----")
+// http://localhost:3000/?customerRating=5&bookType=paperback,hardcover&language=english,german
+
+const data=queryString.parse(props.location.search); 
+console.log(data)
+console.log(data.bookType.includes("hardcover"), "here---------"); 
+
         return (
             <div style={{ backgroundColor: 'blue' }}>
                 <div className="home-page">
@@ -32,27 +41,39 @@ export default class HomePage extends Component {
                             <label className="form-field__label">Language</label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                checked={data.language.includes("english")}
+                                 />
                                 <span className="checkbox-field__label">English</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox" 
+                                 checked={data.language.includes("german")}
+                                />
                                 <span className="checkbox-field__label">German</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                checked={data.language.includes("italian")}
+                                 />
                                 <span className="checkbox-field__label">Italian</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox" 
+                                  checked={data.language.includes("chineese")}
+                                />
+                              
                                 <span className="checkbox-field__label">Chineese</span>
                             </label>
 
                             <label className="checkbox-field">
-                                <input name="language" type="checkbox" />
+                                <input name="language" type="checkbox"
+                                  checked={data.language.includes("russian")} 
+                                  />
+                              
                                 <span className="checkbox-field__label">Russian</span>
                             </label>
                         </div>
@@ -62,15 +83,22 @@ export default class HomePage extends Component {
                             <label className="form-field__label">Book type</label>
 
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                checked={data.bookType.includes("e-book")}
+                                 />
                                 <span className="checkbox-field__label">E-Book</span>
                             </label>
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                 checked={data.bookType.includes("paperback")}
+                                 />
                                 <span className="checkbox-field__label">Paperback</span>
                             </label>
                             <label className="checkbox-field">
-                                <input name="book-type" type="checkbox" />
+                                <input name="book-type" type="checkbox"
+                                
+                                 checked={data.bookType.includes("hardcover")}
+                                />
                                 <span className="checkbox-field__label">Hardcover</span>
                             </label>
                         </div>
@@ -82,6 +110,7 @@ export default class HomePage extends Component {
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                         checked={"1"===data.customerRating}
                                 />
                                 <span className="radio-field__label">1 and up</span>
                             </label>
@@ -90,6 +119,7 @@ export default class HomePage extends Component {
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                         checked={"2"===data.customerRating}
                                 />
                                 <span className="radio-field__label">2 and up</span>
                             </label>
@@ -98,6 +128,7 @@ export default class HomePage extends Component {
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                     checked={"3"===data.customerRating}
                                 />
                                 <span className="radio-field__label">3 and up</span>
                             </label>
@@ -106,6 +137,7 @@ export default class HomePage extends Component {
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                    checked={"4"===data.customerRating}
                                 />
                                 <span className="radio-field__label">4 and up</span>
                             </label>
@@ -114,6 +146,9 @@ export default class HomePage extends Component {
                                 <input
                                     name="customer-rating"
                                     type="radio"
+                                    checked={"5"===data.customerRating}
+                                   
+                                  
                                 />
                                 <span className="radio-field__label">5 and up</span>
                             </label>
@@ -122,5 +157,7 @@ export default class HomePage extends Component {
                 </div>
             </div>
         )
-    }
 }
+
+
+export default HomePage
